@@ -16,8 +16,8 @@ HOST="localhost"
 
 ## Ingresar Datos PostgreSQL
 read -p "- Ingresar Usuario: " USER
-STTY_SAVE=`stty -g`
-stty -echo
+#STTY_SAVE=`stty -g`
+#stty -echo
 #read -p "- Ingrese Password: " PASS
 #stty $STTY_SAVE
 echo
