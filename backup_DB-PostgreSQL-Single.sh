@@ -14,13 +14,12 @@ echo " *** BACKUP POSTGRESQL ***"
 ## Config Postgresql
 HOST="localhost"
 
-
 ## Ingresar Datos PostgreSQL
 read -p "- Ingresar Usuario: " USER
 STTY_SAVE=`stty -g`
 stty -echo
-read -p "- Ingrese Password: " PASS
-stty $STTY_SAVE
+#read -p "- Ingrese Password: " PASS
+#stty $STTY_SAVE
 echo
 read -p "- Ingrese Base de Datos: " db
 read -p "- Verbosidad (s/n): " verb
@@ -32,7 +31,7 @@ File=$db"_BK-"
 fileExt=".sql"
 guion="-"
 finalFile=$File$Fecha$guion$Hora$fileExt
-export PGPASSWORD=$PASS
+export PGPASSWORD="ABCD1234$"
 
 ## Ejecucion
 timeInit=$(date +"%T - %d/%m/%Y")
