@@ -4,15 +4,19 @@
 # Crear carpeta BACKUPS en la Raiz y en ella la carpeta mysql.
 # mkdir -p /BACKUPS/PostgreSQL
 
+
 # Carpeta destino 
 DEST=/BACKUPS/PostgreSQL/
+
 
 ## Banner
 echo ""
 echo " *** BACKUP POSTGRESQL ***"
 
+
 ## Config Postgresql
 HOST="localhost"
+
 
 ## Ingresar Datos PostgreSQL
 read -p "- Ingresar Usuario: " USER
@@ -24,6 +28,7 @@ echo
 read -p "- Ingrese Base de Datos: " db
 read -p "- Verbosidad (s/n): " verb
 
+
 # Variables
 Fecha=$(date +"%Y%m%d")
 Hora=$(date +"%H%M%S")
@@ -32,6 +37,7 @@ fileExt=".sql"
 guion="-"
 finalFile=$File$Fecha$guion$Hora$fileExt
 export PGPASSWORD=$PASS
+
 
 ## Ejecucion
 timeInit=$(date +"%T - %d/%m/%Y")
@@ -68,4 +74,6 @@ echo "- File  : " $finalFile
 echo "- Ruta  : " $DEST$finalFile
 echo ""
 
+
+###  Backups Disponibles  ###
 tree $DEST
