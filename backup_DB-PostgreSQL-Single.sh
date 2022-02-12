@@ -29,9 +29,10 @@ read -p "- Verbosidad (s/n): " verb
 Fecha=$(date +"%Y%m%d")
 Hora=$(date +"%H%M%S")
 File=$db"_BK-"
-fileExt=".sql.gz"
+fileExt=".sql"
 guion="-"
 finalFile=$File$Fecha$guion$Hora$fileExt
+export PGPASSWORD=$PASS
 
 ## Ejecucion
 timeInit=$(date +"%T - %d/%m/%Y")
@@ -40,12 +41,12 @@ cd $DEST
 case $verb in
   s)
     echo ""
-    pg_dump -h $HOST -U $USER -W $PASS -d $db -v > $finalFile
+    pg_dump -h $HOST -U $USER -d $db -v > $finalFile
     sleep 3
   ;;
   n)
     echo ""
-    pg_dump -h $HOST -U $USER -W $PASS -d $db > $finalFile
+    pg_dump -h $HOST -U $USER -d $db > $finalFile
     sleep 3
   ;;
   *)
