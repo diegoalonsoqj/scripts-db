@@ -11,14 +11,6 @@ DEST=/BACKUPS/PostgreSQL/
 echo ""
 echo " *** BACKUP POSTGRESQL ***"
 
-# Variables
-Fecha=$(date +"%Y%m%d")
-Hora=$(date +"%H%M%S")
-File=$db"_BK-"
-fileExt=".sql.gz"
-guion="-"
-finalFile=$File$Fecha$guion$Hora$fileExt
-
 ## Config Postgresql
 HOST="localhost"
 
@@ -33,6 +25,13 @@ echo
 read -p "- Ingrese Base de Datos: " db
 read -p "- Verbosidad (s/n): " verb
 
+# Variables
+Fecha=$(date +"%Y%m%d")
+Hora=$(date +"%H%M%S")
+File=$db"_BK-"
+fileExt=".sql.gz"
+guion="-"
+finalFile=$File$Fecha$guion$Hora$fileExt
 
 ## Ejecucion
 timeInit=$(date +"%T - %d/%m/%Y")
@@ -68,3 +67,5 @@ echo "- Peso  : " $pesoFile
 echo "- File  : " $finalFile
 echo "- Ruta  : " $DEST$finalFile
 echo ""
+
+tree $DEST

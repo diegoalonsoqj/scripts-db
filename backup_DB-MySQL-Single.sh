@@ -11,14 +11,6 @@ DEST=/BACKUPS/MySQL/
 echo ""
 echo " *** BACKUP MYSQL ***"
 
-# Variables
-Fecha=$(date +"%Y%m%d")
-Hora=$(date +"%H%M%S")
-File=$db"_BK-"
-fileExt=".sql.gz"
-guion="-"
-finalFile=$File$Fecha$guion$Hora$fileExt
-
 ## Config mysql
 HOST="localhost"
 #USER="userMysql"
@@ -35,6 +27,13 @@ echo
 read -p "- Ingrese Base de Datos: " db
 read -p "- Verbosidad (s/n): " verb
 
+# Variables
+Fecha=$(date +"%Y%m%d")
+Hora=$(date +"%H%M%S")
+File=$db"_BK-"
+fileExt=".sql.gz"
+guion="-"
+finalFile=$File$Fecha$guion$Hora$fileExt
 
 ## Ejecucion
 timeInit=$(date +"%T - %d/%m/%Y")
@@ -69,3 +68,5 @@ echo "- Peso  : " $pesoFile
 echo "- File  : " $finalFile
 echo "- Ruta  : " $DEST$finalFile
 echo ""
+
+tree $DEST
