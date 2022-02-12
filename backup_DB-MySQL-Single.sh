@@ -4,18 +4,22 @@
 # Crear carpeta BACKUPS en la Raiz y en ella la carpeta mysql.
 # mkdir -p /BACKUPS/MySQL
 
+
 # Carpeta destino 
 DEST=/BACKUPS/MySQL/
+
 
 ## Banner
 echo ""
 echo " *** BACKUP MYSQL ***"
+
 
 ## Config mysql
 HOST="localhost"
 #USER="userMysql"
 #PASS="passwordMysql"
 #db="databaseMysql"
+
 
 ## Ingresar Datos MySQL
 read -p "- Ingresar Usuario: " USER
@@ -27,6 +31,7 @@ echo
 read -p "- Ingrese Base de Datos: " db
 read -p "- Verbosidad (s/n): " verb
 
+
 # Variables
 Fecha=$(date +"%Y%m%d")
 Hora=$(date +"%H%M%S")
@@ -34,6 +39,7 @@ File=$db"_BK-"
 fileExt=".sql.gz"
 guion="-"
 finalFile=$File$Fecha$guion$Hora$fileExt
+
 
 ## Ejecucion
 timeInit=$(date +"%T - %d/%m/%Y")
@@ -69,4 +75,6 @@ echo "- File  : " $finalFile
 echo "- Ruta  : " $DEST$finalFile
 echo ""
 
+
+###  Backups Disponibles  ###
 tree $DEST
